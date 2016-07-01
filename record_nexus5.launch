@@ -1,0 +1,33 @@
+<!-- -*- mode: XML -*- -->
+<!-- start 
+     $Id$
+  -->
+
+<launch>
+
+  <!-- start -->
+
+
+  <node pkg="subscriber_android_sensors" type="subscriber_android_sensors_node" name="record_android_sensors">
+	  <param name="prefix" value="/home/latty/Prog/ROS/subscriber_topic_image_to_disk/export/SENSORS_" />
+	  <param name="binary" value="false" />
+	  <param name="xml" value="true" />
+	  <param name="sensors_topic" value="/android/imu" />
+  </node>    
+
+  <!-- rosrun 
+	sub_img_to_file 
+	sub_img_to_file_node 
+	_image_transport:=compressed 
+	_prefix:=export/IMG_ 
+	_show_image:=True 
+  -->
+
+  <node pkg="sub_img_to_file" type="sub_img_to_file_node" name="record_android_images">
+	  <param name="prefix" value="/home/latty/Prog/ROS/subscriber_topic_image_to_disk/export/IMG_" />
+	  <param name="image_transport" value="compressed" />
+	  <param name="show_image" value="True" />
+  </node>
+
+</launch>
+
